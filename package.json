@@ -1,0 +1,29 @@
+{
+  "name": "hindi-typer",
+  "version": "1.0.0",
+  "description": "Hindi typing test for school",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DivySrivastava/HindiTyper.git"
+  },
+  "keywords": [
+    "hindi",
+    "typing",
+    "test"
+  ],
+  "author": "Divy Srivastava <dj.srivastava23@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DivySrivastava/HindiTyper/issues"
+  },
+  "homepage": "https://github.com/DivySrivastava/HindiTyper#readme"
+}
