@@ -39,6 +39,7 @@
 		}, 1000);
 		$("#editor").focus();
 	})
+
 	$('#editor').keyup(function(e){
 		//if(e.which==32)  
 		var txt		=	$("#editor").text();
@@ -53,7 +54,7 @@
 			if(v == act_word) {  
 				$('#word_'+currnt).addClass('sahi').removeClass('galat');
 			} else{
-				$('#word_'+currnt).addClass('galat').removeClass('sahi');;
+				$('#word_'+currnt).addClass('galat').removeClass('sahi');
 			}
 		});	
 		 
@@ -69,8 +70,15 @@
 		console.log(len);
 		console.log(mylen);
 		var speed = (mylen)/(time/60);
-		//alert("Your speed is "+speed);
 		var wrong =	$('.galat').length;
+		httpSaveResults({
+			user:{},
+			results:{
+				speed:speed,
+				timeTaken:time
+			},
+			time:new Date()
+		})
 		$('#result_modal').modal({ keyboard: false })
 		$('#result_modal').modal('show');
 		$("#speedshow").html(speed);
@@ -99,9 +107,26 @@
 		var mywords = $("#editor").text().split(" ");
 		mylen		= mywords.length; 
 		var speed = Math.floor((mylen)/(con_time/60));
-		$("#currnt_speed").html("Current Speed is: "+speed);
+		$("#currnt_speed").html("Current Speed is: "+speed+" wpm");
 		$('#consume_time').val(con_time++);
 		 
+	}
+	show_notification = function () {
+		// body...
+	}
+	httpSaveResults = function (opts) {
+		$.ajax({
+        method: 'POST',
+        url: '/result/save',
+        data: opts
+	    })
+	    .done(function(data){
+	    	show_notification('Following','success')
+
+	    })
+	    .fail(function(data){
+	      console.log(data)  
+	    });
 	}
  }) 
  

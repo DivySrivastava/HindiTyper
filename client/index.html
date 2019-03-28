@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
     
-    <title> Hindi Typing Test</title> 
+    <title> Hindi Typing Test - हिन्दी </title> 
     <!-- Bootstrap Core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="css/flatly.bootstrap.min.css" rel="stylesheet"> 
     <link href="css/style.css" rel="stylesheet">  
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/global.css" rel="stylesheet">  
+    <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
     <link href="css/animate.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'> 
-
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,53 +26,80 @@
 
 <body> 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom">
-        <div class="container-fluid top-head">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Hindi Typing Test</a>
-            </div>
+    <div class="promoBanner active">
+      <div class="backgroundSkew"></div>
+      
+      <div class="container promo pb-5 pt-2 mb-5 text-center">
+        <a href="http://mygurukulonline.in/" class="downloadCount" target="_blank"><div class="float-left">
+        	<img src="img/logo/logo.png" class="logo">
+        	<p>leaflet</p>
+    	</div>
+    	</a>
+    	<a href="/about" class="downloadCount" target="_blank">
+    	<span class="logo hindi-logo float-right"></span>
+    </a>
+    	<br><br>
+        <h2 class="text-center display-1 col-md-auto">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li> <a href="/" class="btn btn-link">Refresh</a></li>
-                    <li><a href="/english" class="btn btn-link">English</a></li>
-                    <li><a href="/by" class="btn btn-link">About</a></li>
-                    
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+        		Hindi typing test
+    	</h2>
+        <h4 class="text-center col-12 col-md-8 m-auto">Check your Hindi typing skills anywhere.</h4>
+        <div class="download col-md-auto mt-5">
+          <h4>Choose your difficulty level</h4>
+          <div class="mt-2 btn-group" role="group" aria-label="Download buttons" id="levels">
+          	<div class="col-md-4">
+				<button class="btn btn-success level-btn" value="easy">Easy</button>
+			</div>
+			<div class="col-md-4">
+				<button class="btn btn-success level-btn" value="normal">Normal</button> 
+			</div>
+			<div class="col-md-4">
+				<button class="btn btn-success level-btn" value="hard">Hard</button>
+			</div>
+          </div>
         </div>
-        <!-- /.container -->
-    </nav>
+        <a class="downloadCount mt-3 d-block" href="https://github.com/DivySrivastava/HindiTyper" target="_blank">currently using v1.0.1</a>
+      </div>
+      <br>
+      <br>
+      <br>
+    </div>
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     
 	<section class="container-fluid main">
-		<div class="container choose-level ">  
-		  <div class="row levels" id="levels">
-			<h2> Choose Your Difficulty Level </h2>
-			<div class="col-md-4">
-				<button class="btn lg easy level" value="easy">Easy</button>
-			</div>
-			<div class="col-md-4">
-				<button class="btn lg normal level" value="normal">Normal</button> 
-			</div>
-			<div class="col-md-4">
-				<button class="btn lg hard level" value="hard">Hard</button>
-			</div>
-		  </div>  
-		</div>
 		<div class="row editor-container clearfix" id="typing-tutor">
-			<div class="col-md-5">
+			<div class="container">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="m0">Timer</h3>  
+						<input type="hidden" id="current_speed" value="">
+						<input type="hidden" id="consume_time" value="0">
+						<input type="hidden" id="tddime" value="56">
+					</div> 
+					<div class="panel-body text-center"> 
+						<label> Choose Time </label>
+						<select id="time" name ="time" class="form-control">
+							<option value="60"> 1 Minute </option>
+							<option value="300"> 5 Minutes </option>
+							<option value="600" selected> 10 Minutes </option>
+							<option value="900"> 15 Minutes </option>
+							<option value="1200"> 20 Minutes </option>
+							<option value="1500"> 25 Minutes </option>
+							<option value="1800"> 30 Minutes </option>
+						</select><br>
+						<div class="timer" id="timer">
+							<button class="btn btn-success" id="start_btn"> Start Test </button>
+						</div>
+						
+					</div> 
+					<div class="panel-footer text-center">
+						  Time Remaining
+					</div>
+				</div>  			
+			</div><br>
+			<div class="col-md-6">
 				<div class="panel panel-yellow">
 					<div class="panel-heading left-con">
 						<div class="row">
@@ -99,7 +127,7 @@
 					</div> 
 				</div>  
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<div class="panel panel-yellow">
 					<div class="panel-heading">
 						Type Here <span id="speedshow"> </span> | <span id="currnt_speed"></span>
@@ -110,39 +138,12 @@
 					</div> 
 				</div> 
 			</div>
-			<div class="col-md-2">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="m0">Timer</h3>  
-						<input type="hidden" id="current_speed" value="">
-						<input type="hidden" id="consume_time" value="0">
-						<input type="hidden" id="tddime" value="56">
-					</div> 
-					<div class="panel-body text-center"> 
-						<label> Choose Time </label>
-						<select id="time" name ="time" class="form-control">
-							<option value="60"> 1 Minute </option>
-							<option value="300"> 5 Minutes </option>
-							<option value="600" selected> 10 Minutes </option>
-							<option value="900"> 15 Minutes </option>
-							<option value="1200"> 20 Minutes </option>
-							<option value="1500"> 25 Minutes </option>
-							<option value="1800"> 30 Minutes </option>
-						</select><br>
-						<div class="timer" id="timer">
-							<button class="btn btn-success" id="start_btn"> Start Test </button>
-						</div>
-						
-					</div> 
-					<div class="panel-footer text-center">
-						  Time Remaining:  
-					</div>
-				</div>  			
-			</div>
+			
 	
 		</div>
 		
 	</section>
+	<!--- On page keyboard [staging]
 	<div class="container">
 		<div class="row keyboard">
 			<ul class="keyrow1"> 
@@ -221,7 +222,7 @@
 		</div>
 		
 	</div> 
-	 
+	 -->
     <!-- Footer -->
      
 	<div id="output"></div> 
@@ -267,8 +268,14 @@
 	</div><!-- /.modal -->
 	<style>
 		.fb-share-button{padding:3px 6px;margin-top: -3px;}
-		.fbb{color:#fff;}
 	</style>
+	<footer class="foot-note">
+		<br>
+		<center> Made by <strong>Divy Srivastava</strong><br>
+			Project lisensed under <a href="http://mygurukulonline.in/" class="downloadCount">MIT</a> liscense.</center>
+			<br>
+	</footer>
+	
 </body>
 
 </html>
